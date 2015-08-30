@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DataLayer.Models.Hotels>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index des hôtels</h2>
+
+<p>
+    @Html.ActionLink("Ajouter un nouvel hôtel", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdHotel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categorie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        
+        <th>
+            Villes
+
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdHotel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categories.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Villes.name)
+        </td>
+        <td>
+            @Html.ActionLink("Editer", "Edit", new { id=item.IdHotel }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdHotel }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.IdHotel })
+        </td>
+    </tr>
+}
+
+</table>

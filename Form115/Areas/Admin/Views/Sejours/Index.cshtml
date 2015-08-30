@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DataLayer.Models.Sejours>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index des Séjours</h2>
+
+<p>
+    @Html.ActionLink("Créer un nouveau séjour", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSejour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hotels.Nom)
+        </th>
+        <th>
+            Destination
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Duree)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSejour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hotels.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hotels.Villes.name)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Duree)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Editer", "Edit", new { id=item.IdSejour }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdSejour }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.IdSejour })
+        </td>
+    </tr>
+}
+
+</table>

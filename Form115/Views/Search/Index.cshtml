@@ -1,0 +1,114 @@
+﻿@model Form115.Models.SearchViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts{
+<script src="~/Scripts/DatePicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/Search/Index.js"></script>
+}
+@section styles{
+<link href="~/Scripts/DatePicker/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" />
+}
+
+<h2>Recherche</h2>
+
+@using (Html.BeginForm("Result", "Search")) // , new { svm = Model, page = 1}
+{
+
+    <div class="form-group col-sm-3">
+        <fieldset>
+            <legend>Destination</legend>
+            @*Continent, Pays, Région, Ville*@
+            <label for="listeContinents">Continent :</label>
+            <select class="form-control" id="listeContinents" name="Continent">
+                <option value="0">Sélectionnez un continent</option>
+                @foreach (var continent in Model.ListeContinents)
+                {
+                    <option value="@continent.Key">@continent.Value</option>
+                }
+            </select>
+
+            <label class="control-label" for="listeRegions">Région : </label>
+            <select class="form-control" id="listeRegions" name="Region" disabled>
+                <option value="0">Sélectionnez une région</option>
+            </select>
+
+            <label class="control-label" for="listePays">Pays : </label>
+            <select class="form-control" id="listePays" name="Pays" disabled>
+                <option value="0">Sélectionnez un pays</option>
+            </select>
+
+            <label class="control-label" for="listeVilles">Ville : </label>
+            <select class="form-control" id="listeVilles" name="Ville" disabled>
+                <option value="0">Sélectionnez une ville</option>
+            </select>
+
+
+            @*</div>*@
+            @*<input type="checkbox" id="carbu1" name="Carburant" value="1"/>Essence
+                <input type="checkbox" id="carbu2" name="Carburant" value="1" />Diesel*@
+
+
+
+        </fieldset>
+    </div>
+
+    <div class=" form-group col-sm-3">
+        <fieldset>
+            <legend>Période du séjour</legend>
+            <label for="DateDepart">Date de départ autour du :</label>
+            <input id="DateDepart" class="form-control" name="DateDepart" value="@DateTime.Now.Date.ToShortDateString()" />
+
+            <label for="Duree">Durée approximative du séjour (jours)</label>
+            <input id="Duree" class="form-control" name="Duree" />
+
+
+        </fieldset>
+    </div>
+
+    <div class="form-group col-sm-5">
+        <fieldset>
+            <legend>Informations du séjour</legend>
+            @*Catégorie de l'hôtel*@
+            <div class="form-group col-sm-4">
+                <label>Catégorie de l'hôtel </label>
+                @foreach (var c in Model.ListeCategories)
+                {
+                    <span class="for-group  col-sm-12">
+                        <input type="checkbox" name="Categorie" value="@c.Key" class="form-inline" /> 
+                        <label for="@c.Key">@c.Value</label>
+                    </span>
+                }
+            </div>
+
+            @*Nombre de personnes*@
+            <div class="form-group col-sm-4">
+                <label>Nombre de personnes</label>
+                <select name="NbPers" id="NbPers" class="form-control">
+                    @for (int i = 1; i <= @Model.DisponibiliteMax; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+            </div>
+
+            @*Prix
+                // TODO revoir gestion Prix*@
+            @*<input type="hidden" id="prixMaxSlider" value="@ViewBag.PrixMaxSlider" />*@
+            <div class="form-group col-sm-4">
+                <label>Tranche de prix</label>
+                <input type="text" id="PrixMini" name="PrixMini" class="form-control" />
+                <input type="text" id="PrixMaxi" name="PrixMaxi" class="form-control" style="margin-top:8px; margin-bottom:8px" />
+                @*<div id="Prix" class="col-sm-12"></div>*@
+            </div>
+
+        </fieldset>
+    </div>
+
+    <button type="submit" class="btn btn-default" id="SearchBtn">Rechercher</button>
+
+
+}
+

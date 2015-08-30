@@ -1,0 +1,50 @@
+﻿@model DataLayer.Models.Sejours
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details d'un séjour</h2>
+
+<div>
+    <h4>Sejours: @Model.IdSejour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Destination
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hotels.Villes.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Duree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hotels.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hotels.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hotels.Categorie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hotels.Categories.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edition", "Edit", new { id = Model.IdSejour }) |
+    @Html.ActionLink("Retour à l'index", "Index") |
+    @Html.ActionLink("Mettre ce séjour en vente", "Create", "Produits")
+</p>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DataLayer.Models.Produits>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index des séjours mis en vente</h2>
+
+<p>
+    @Html.ActionLink("Ajouter un séjour à la vente", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sejours.IdSejour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbPlaces)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDepart)
+        </th>
+        <th>
+            Destination
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prix)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sejours.IdSejour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NbPlaces)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDepart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sejours.Hotels.Villes.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prix)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Editer", "Edit", new { id=item.IdProduit }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdProduit }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.IdProduit })
+        </td>
+    </tr>
+}
+
+</table>

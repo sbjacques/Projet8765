@@ -1,0 +1,31 @@
+﻿@model Form115.Models.BrowseViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Index</h2>*@
+
+@section scripts{
+    <script src="~/Scripts/Browse/Index.js"></script>
+}
+
+<p id="BreadCrumb">Parcourir le catalogue >> Continents</p>
+
+<p id="texteChoix">Choix du continent</p>
+<ul id="listeChoix">
+    @foreach (var continent in Model.ListeContinents)
+    {
+        <li><a class="Continents" href="#" id="@continent.Key">@continent.Value</a></li>
+    }
+</ul>
+@{
+    int cpt = 0;
+    foreach (var item in ViewBag.BestHotels)
+    {
+        <text><div class="partial_view_search_result sm-4" id="@String.Format("partial_view_search_result{0}",cpt)">
+
+    @Html.Action("PartialSearchResult", "Search", new {srpvi = item });
+</div></text>
+        cpt++;
+    }
+}

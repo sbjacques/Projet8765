@@ -1,0 +1,66 @@
+﻿@model DataLayer.Models.Produits
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Etes-vous sûrs de vouloir supprimer ce produit de la vente?</h3>
+<div>
+    <h4>Produit n°@Model.IdProduit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sejours.IdSejour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sejours.IdSejour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbPlaces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbPlaces)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDepart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDepart)
+        </dd>
+
+        <dt>
+            Destination
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sejours.Hotels.Villes.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Retour à l'index", "Index")
+        </div>
+    }
+</div>

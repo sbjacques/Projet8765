@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DataLayer.Models.Promotions>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="center-block">L'ensemble de nos promotions en cours</h2>
+
+
+<table class="table">
+    <tr class="alert-info">
+        <th>
+            Hôtels/Catégories
+        </th>
+        <th>Destination</th>
+        <th>Début de l'offre</th>
+        <th>Validité</th>
+        <th>Réduction</th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Hotels.Nom - @item.Hotels.Categorie*
+            </td>
+            <td>
+                @item.Hotels.Villes.name 
+            </td>
+
+            <td>
+                @item.DateDebut.ToString("dd-MM-yy")
+            </td>
+            <td>
+                @item.DateFin.ToString("dd-MM-yy")
+            </td>
+            <td class="alert-info btn-info">
+                <a href="~/Hotel/Details/@item.IdHotel/@item.DateDebut.ToString("yyyy-MM-dd")/@item.DateFin.ToString("yyyy-MM-dd")">
+                    @item.Valeur%
+                </a>
+            </td>
+            <td class="thumbnail">@item.Hotels.Photo</td>
+
+
+
+        </tr>
+    }
+
+</table>
