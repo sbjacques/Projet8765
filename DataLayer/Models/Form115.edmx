@@ -1,0 +1,1150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Form115Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="IdCategorie" />
+          </Key>
+          <Property Name="IdCategorie" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Continents">
+          <Key>
+            <PropertyRef Name="idContinent" />
+          </Key>
+          <Property Name="idContinent" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Hotels">
+          <Key>
+            <PropertyRef Name="IdHotel" />
+          </Key>
+          <Property Name="IdHotel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="60" />
+          <Property Name="IdVille" Type="int" />
+          <Property Name="Categorie" Type="tinyint" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Photo" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="HotelTracking">
+          <Key>
+            <PropertyRef Name="IdHotelTracking" />
+          </Key>
+          <Property Name="IdHotelTracking" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateHT" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="IdHotel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pays">
+          <Key>
+            <PropertyRef Name="CodeIso3" />
+          </Key>
+          <Property Name="CodeIso3" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Name" Type="char" MaxLength="52" Nullable="false" />
+          <Property Name="surfacearea" Type="float" Nullable="false" />
+          <Property Name="indepyear" Type="smallint" />
+          <Property Name="population" Type="int" Nullable="false" />
+          <Property Name="lifeexpectancy" Type="float" />
+          <Property Name="gnp" Type="float" />
+          <Property Name="gnpold" Type="float" />
+          <Property Name="localName" Type="char" MaxLength="45" Nullable="false" />
+          <Property Name="CodeIso2" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="idRegion" Type="int" Nullable="false" />
+          <Property Name="idgovform" Type="int" Nullable="false" />
+          <Property Name="idheadofstate" Type="int" />
+        </EntityType>
+        <EntityType Name="Produits">
+          <Key>
+            <PropertyRef Name="IdProduit" />
+          </Key>
+          <Property Name="IdProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSejour" Type="int" Nullable="false" />
+          <Property Name="NbPlaces" Type="int" Nullable="false" />
+          <Property Name="DateDepart" Type="date" Nullable="false" />
+          <Property Name="Prix" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Promotions">
+          <Key>
+            <PropertyRef Name="IdPromo" />
+          </Key>
+          <Property Name="IdPromo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdHotel" Type="int" Nullable="false" />
+          <Property Name="DateDebut" Type="date" Nullable="false" />
+          <Property Name="DateFin" Type="date" Nullable="false" />
+          <Property Name="Valeur" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="idRegion" />
+          </Key>
+          <Property Name="idRegion" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="26" Nullable="false" />
+          <Property Name="idContinent" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="IdReservation" />
+          </Key>
+          <Property Name="IdReservation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProduit" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="IdUtilisateur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sejours">
+          <Key>
+            <PropertyRef Name="IdSejour" />
+          </Key>
+          <Property Name="IdSejour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdHotel" Type="int" Nullable="false" />
+          <Property Name="Duree" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utilisateurs">
+          <Key>
+            <PropertyRef Name="IdUtilisateur" />
+          </Key>
+          <Property Name="IdUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="60" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="60" />
+          <Property Name="Telephone" Type="varchar" MaxLength="12" />
+          <Property Name="IdAspNetUsers" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Villes">
+          <Key>
+            <PropertyRef Name="idVille" />
+          </Key>
+          <Property Name="idVille" Type="int" Nullable="false" />
+          <Property Name="name" Type="char" MaxLength="35" Nullable="false" />
+          <Property Name="CodeIso3" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="district" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="population" Type="int" Nullable="false" />
+          <Property Name="isCapital" Type="smallint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_HotelTracking_Hotels">
+          <End Role="Hotels" Type="Self.Hotels" Multiplicity="1" />
+          <End Role="HotelTracking" Type="Self.HotelTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotels">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="HotelTracking">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_produits_sejours">
+          <End Role="Sejours" Type="Self.Sejours" Multiplicity="1" />
+          <End Role="Produits" Type="Self.Produits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sejours">
+              <PropertyRef Name="IdSejour" />
+            </Principal>
+            <Dependent Role="Produits">
+              <PropertyRef Name="IdSejour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reservations_produits">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="IdProduit" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sejours_hotels">
+          <End Role="Hotels" Type="Self.Hotels" Multiplicity="1" />
+          <End Role="Sejours" Type="Self.Sejours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotels">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="Sejours">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hotels_Categories_fk">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Hotels" Type="Self.Hotels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="IdCategorie" />
+            </Principal>
+            <Dependent Role="Hotels">
+              <PropertyRef Name="Categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hotels_Villes_fk">
+          <End Role="Villes" Type="Self.Villes" Multiplicity="0..1" />
+          <End Role="Hotels" Type="Self.Hotels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Villes">
+              <PropertyRef Name="idVille" />
+            </Principal>
+            <Dependent Role="Hotels">
+              <PropertyRef Name="IdVille" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pays_Regions_fk">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+          <End Role="Pays" Type="Self.Pays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="idRegion" />
+            </Principal>
+            <Dependent Role="Pays">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Promotion_Hotel_fk">
+          <End Role="Hotels" Type="Self.Hotels" Multiplicity="1" />
+          <End Role="Promotions" Type="Self.Promotions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotels">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="Promotions">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Regions_Continents_fk">
+          <End Role="Continents" Type="Self.Continents" Multiplicity="1" />
+          <End Role="Regions" Type="Self.Regions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continents">
+              <PropertyRef Name="idContinent" />
+            </Principal>
+            <Dependent Role="Regions">
+              <PropertyRef Name="idContinent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reservations_Utilisateurs_fk">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="IdUtilisateur" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Utilisateurs_Users_fk">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Utilisateurs">
+              <PropertyRef Name="IdAspNetUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Villes_Pays_fk">
+          <End Role="Pays" Type="Self.Pays" Multiplicity="1" />
+          <End Role="Villes" Type="Self.Villes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pays">
+              <PropertyRef Name="CodeIso3" />
+            </Principal>
+            <Dependent Role="Villes">
+              <PropertyRef Name="CodeIso3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Form115ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Continents" EntityType="Self.Continents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hotels" EntityType="Self.Hotels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelTracking" EntityType="Self.HotelTracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pays" EntityType="Self.Pays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produits" EntityType="Self.Produits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promotions" EntityType="Self.Promotions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sejours" EntityType="Self.Sejours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Villes" EntityType="Self.Villes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_HotelTracking_Hotels" Association="Self.fk_HotelTracking_Hotels">
+            <End Role="Hotels" EntitySet="Hotels" />
+            <End Role="HotelTracking" EntitySet="HotelTracking" />
+          </AssociationSet>
+          <AssociationSet Name="fk_produits_sejours" Association="Self.fk_produits_sejours">
+            <End Role="Sejours" EntitySet="Sejours" />
+            <End Role="Produits" EntitySet="Produits" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reservations_produits" Association="Self.fk_reservations_produits">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sejours_hotels" Association="Self.fk_sejours_hotels">
+            <End Role="Hotels" EntitySet="Hotels" />
+            <End Role="Sejours" EntitySet="Sejours" />
+          </AssociationSet>
+          <AssociationSet Name="Hotels_Categories_fk" Association="Self.Hotels_Categories_fk">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Hotels" EntitySet="Hotels" />
+          </AssociationSet>
+          <AssociationSet Name="Hotels_Villes_fk" Association="Self.Hotels_Villes_fk">
+            <End Role="Villes" EntitySet="Villes" />
+            <End Role="Hotels" EntitySet="Hotels" />
+          </AssociationSet>
+          <AssociationSet Name="Pays_Regions_fk" Association="Self.Pays_Regions_fk">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Pays" EntitySet="Pays" />
+          </AssociationSet>
+          <AssociationSet Name="Promotion_Hotel_fk" Association="Self.Promotion_Hotel_fk">
+            <End Role="Hotels" EntitySet="Hotels" />
+            <End Role="Promotions" EntitySet="Promotions" />
+          </AssociationSet>
+          <AssociationSet Name="Regions_Continents_fk" Association="Self.Regions_Continents_fk">
+            <End Role="Continents" EntitySet="Continents" />
+            <End Role="Regions" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="Reservations_Utilisateurs_fk" Association="Self.Reservations_Utilisateurs_fk">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="Utilisateurs_Users_fk" Association="Self.Utilisateurs_Users_fk">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+          </AssociationSet>
+          <AssociationSet Name="Villes_Pays_fk" Association="Self.Villes_Pays_fk">
+            <End Role="Pays" EntitySet="Pays" />
+            <End Role="Villes" EntitySet="Villes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Form115Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="IdCategorie" />
+          </Key>
+          <Property Name="IdCategorie" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Hotels" Relationship="Self.Hotels_Categories_fk" FromRole="Categories" ToRole="Hotels" />
+        </EntityType>
+        <EntityType Name="Continents">
+          <Key>
+            <PropertyRef Name="idContinent" />
+          </Key>
+          <Property Name="idContinent" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Regions" Relationship="Self.Regions_Continents_fk" FromRole="Continents" ToRole="Regions" />
+        </EntityType>
+        <EntityType Name="Hotels">
+          <Key>
+            <PropertyRef Name="IdHotel" />
+          </Key>
+          <Property Name="IdHotel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="IdVille" Type="Int32" />
+          <Property Name="Categorie" Type="Byte" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Categories" Relationship="Self.Hotels_Categories_fk" FromRole="Hotels" ToRole="Categories" />
+          <NavigationProperty Name="Sejours" Relationship="Self.fk_sejours_hotels" FromRole="Hotels" ToRole="Sejours" />
+          <NavigationProperty Name="Villes" Relationship="Self.Hotels_Villes_fk" FromRole="Hotels" ToRole="Villes" />
+          <NavigationProperty Name="Promotions" Relationship="Form115Model.Promotion_Hotel_fk" FromRole="Hotels" ToRole="Promotions" />
+          <NavigationProperty Name="HotelTracking" Relationship="Form115Model.fk_HotelTracking_Hotels" FromRole="Hotels" ToRole="HotelTracking" />
+        </EntityType>
+        <EntityType Name="Pays">
+          <Key>
+            <PropertyRef Name="CodeIso3" />
+          </Key>
+          <Property Name="CodeIso3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="52" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="surfacearea" Type="Double" Nullable="false" />
+          <Property Name="indepyear" Type="Int16" />
+          <Property Name="population" Type="Int32" Nullable="false" />
+          <Property Name="lifeexpectancy" Type="Double" />
+          <Property Name="gnp" Type="Double" />
+          <Property Name="gnpold" Type="Double" />
+          <Property Name="localName" Type="String" MaxLength="45" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CodeIso2" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idRegion" Type="Int32" Nullable="false" />
+          <Property Name="idgovform" Type="Int32" Nullable="false" />
+          <Property Name="idheadofstate" Type="Int32" />
+          <NavigationProperty Name="Regions" Relationship="Self.Pays_Regions_fk" FromRole="Pays" ToRole="Regions" />
+          <NavigationProperty Name="Villes" Relationship="Self.Villes_Pays_fk" FromRole="Pays" ToRole="Villes" />
+        </EntityType>
+        <EntityType Name="Produits">
+          <Key>
+            <PropertyRef Name="IdProduit" />
+          </Key>
+          <Property Name="IdProduit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSejour" Type="Int32" Nullable="false" />
+          <Property Name="NbPlaces" Type="Int32" Nullable="false" />
+          <Property Name="DateDepart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Prix" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Sejours" Relationship="Self.fk_produits_sejours" FromRole="Produits" ToRole="Sejours" />
+          <NavigationProperty Name="Reservations" Relationship="Self.fk_reservations_produits" FromRole="Produits" ToRole="Reservations" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="idRegion" />
+          </Key>
+          <Property Name="idRegion" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="26" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idContinent" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Continents" Relationship="Self.Regions_Continents_fk" FromRole="Regions" ToRole="Continents" />
+          <NavigationProperty Name="Pays" Relationship="Self.Pays_Regions_fk" FromRole="Regions" ToRole="Pays" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="IdReservation" />
+          </Key>
+          <Property Name="IdReservation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProduit" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produits" Relationship="Self.fk_reservations_produits" FromRole="Reservations" ToRole="Produits" />
+          <NavigationProperty Name="Utilisateurs" Relationship="Self.Reservations_Utilisateurs_fk" FromRole="Reservations" ToRole="Utilisateurs" />
+        </EntityType>
+        <EntityType Name="Sejours">
+          <Key>
+            <PropertyRef Name="IdSejour" />
+          </Key>
+          <Property Name="IdSejour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdHotel" Type="Int32" Nullable="false" />
+          <Property Name="Duree" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Hotels" Relationship="Self.fk_sejours_hotels" FromRole="Sejours" ToRole="Hotels" />
+          <NavigationProperty Name="Produits" Relationship="Self.fk_produits_sejours" FromRole="Sejours" ToRole="Produits" />
+        </EntityType>
+        <EntityType Name="Utilisateurs">
+          <Key>
+            <PropertyRef Name="IdUtilisateur" />
+          </Key>
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reservations" Relationship="Self.Reservations_Utilisateurs_fk" FromRole="Utilisateurs" ToRole="Reservations" />
+          <Property Name="IdAspNetUsers" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Form115Model.Utilisateurs_Users_fk" FromRole="Utilisateurs" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="Villes">
+          <Key>
+            <PropertyRef Name="idVille" />
+          </Key>
+          <Property Name="idVille" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="35" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CodeIso3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="district" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="population" Type="Int32" Nullable="false" />
+          <Property Name="isCapital" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Hotels" Relationship="Self.Hotels_Villes_fk" FromRole="Villes" ToRole="Hotels" />
+          <NavigationProperty Name="Pays" Relationship="Self.Villes_Pays_fk" FromRole="Villes" ToRole="Pays" />
+        </EntityType>
+        <Association Name="Hotels_Categories_fk">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Hotels" Type="Self.Hotels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="IdCategorie" />
+            </Principal>
+            <Dependent Role="Hotels">
+              <PropertyRef Name="Categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Regions_Continents_fk">
+          <End Role="Continents" Type="Self.Continents" Multiplicity="1" />
+          <End Role="Regions" Type="Self.Regions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continents">
+              <PropertyRef Name="idContinent" />
+            </Principal>
+            <Dependent Role="Regions">
+              <PropertyRef Name="idContinent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sejours_hotels">
+          <End Role="Hotels" Type="Self.Hotels" Multiplicity="1" />
+          <End Role="Sejours" Type="Self.Sejours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotels">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="Sejours">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Hotels_Villes_fk">
+          <End Role="Villes" Type="Self.Villes" Multiplicity="0..1" />
+          <End Role="Hotels" Type="Self.Hotels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Villes">
+              <PropertyRef Name="idVille" />
+            </Principal>
+            <Dependent Role="Hotels">
+              <PropertyRef Name="IdVille" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pays_Regions_fk">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+          <End Role="Pays" Type="Self.Pays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="idRegion" />
+            </Principal>
+            <Dependent Role="Pays">
+              <PropertyRef Name="idRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Villes_Pays_fk">
+          <End Role="Pays" Type="Self.Pays" Multiplicity="1" />
+          <End Role="Villes" Type="Self.Villes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pays">
+              <PropertyRef Name="CodeIso3" />
+            </Principal>
+            <Dependent Role="Villes">
+              <PropertyRef Name="CodeIso3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_produits_sejours">
+          <End Role="Sejours" Type="Self.Sejours" Multiplicity="1" />
+          <End Role="Produits" Type="Self.Produits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sejours">
+              <PropertyRef Name="IdSejour" />
+            </Principal>
+            <Dependent Role="Produits">
+              <PropertyRef Name="IdSejour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reservations_produits">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="IdProduit" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reservations_Utilisateurs_fk">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="IdUtilisateur" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Form115Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Continents" EntityType="Self.Continents" />
+          <EntitySet Name="Hotels" EntityType="Self.Hotels" />
+          <EntitySet Name="Pays" EntityType="Self.Pays" />
+          <EntitySet Name="Produits" EntityType="Self.Produits" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservations" />
+          <EntitySet Name="Sejours" EntityType="Self.Sejours" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateurs" />
+          <EntitySet Name="Villes" EntityType="Self.Villes" />
+          <AssociationSet Name="Hotels_Categories_fk" Association="Self.Hotels_Categories_fk">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Hotels" EntitySet="Hotels" />
+          </AssociationSet>
+          <AssociationSet Name="Regions_Continents_fk" Association="Self.Regions_Continents_fk">
+            <End Role="Continents" EntitySet="Continents" />
+            <End Role="Regions" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sejours_hotels" Association="Self.fk_sejours_hotels">
+            <End Role="Hotels" EntitySet="Hotels" />
+            <End Role="Sejours" EntitySet="Sejours" />
+          </AssociationSet>
+          <AssociationSet Name="Hotels_Villes_fk" Association="Self.Hotels_Villes_fk">
+            <End Role="Villes" EntitySet="Villes" />
+            <End Role="Hotels" EntitySet="Hotels" />
+          </AssociationSet>
+          <AssociationSet Name="Pays_Regions_fk" Association="Self.Pays_Regions_fk">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Pays" EntitySet="Pays" />
+          </AssociationSet>
+          <AssociationSet Name="Villes_Pays_fk" Association="Self.Villes_Pays_fk">
+            <End Role="Pays" EntitySet="Pays" />
+            <End Role="Villes" EntitySet="Villes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_produits_sejours" Association="Self.fk_produits_sejours">
+            <End Role="Sejours" EntitySet="Sejours" />
+            <End Role="Produits" EntitySet="Produits" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reservations_produits" Association="Self.fk_reservations_produits">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="Reservations_Utilisateurs_fk" Association="Self.Reservations_Utilisateurs_fk">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <EntitySet Name="C__MigrationHistory" EntityType="Form115Model.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Form115Model.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Form115Model.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Form115Model.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Form115Model.AspNetUsers" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Form115Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Form115Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Form115Model.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="Promotions" EntityType="Form115Model.Promotions" />
+          <AssociationSet Name="Utilisateurs_Users_fk" Association="Form115Model.Utilisateurs_Users_fk">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+          </AssociationSet>
+          <AssociationSet Name="Promotion_Hotel_fk" Association="Form115Model.Promotion_Hotel_fk">
+            <End Role="Hotels" EntitySet="Hotels" />
+            <End Role="Promotions" EntitySet="Promotions" />
+          </AssociationSet>
+          <EntitySet Name="HotelTracking" EntityType="Form115Model.HotelTracking" />
+          <AssociationSet Name="fk_HotelTracking_Hotels" Association="Form115Model.fk_HotelTracking_Hotels">
+            <End Role="Hotels" EntitySet="Hotels" />
+            <End Role="HotelTracking" EntitySet="HotelTracking" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Form115Model.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Form115Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Form115Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Form115Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Form115Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Form115Model.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="Utilisateurs" Relationship="Form115Model.Utilisateurs_Users_fk" FromRole="AspNetUsers" ToRole="Utilisateurs" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="Form115Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Form115Model.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="Form115Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Form115Model.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="Form115Model.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+          <End Type="Form115Model.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Promotions">
+          <Key>
+            <PropertyRef Name="IdPromo" />
+          </Key>
+          <Property Name="IdPromo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdHotel" Type="Int32" Nullable="false" />
+          <Property Name="DateDebut" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateFin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Valeur" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Hotels" Relationship="Form115Model.Promotion_Hotel_fk" FromRole="Promotions" ToRole="Hotels" />
+        </EntityType>
+        <Association Name="Utilisateurs_Users_fk">
+          <End Type="Form115Model.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1" />
+          <End Type="Form115Model.Utilisateurs" Role="Utilisateurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Utilisateurs">
+              <PropertyRef Name="IdAspNetUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Promotion_Hotel_fk">
+          <End Type="Form115Model.Hotels" Role="Hotels" Multiplicity="1" />
+          <End Type="Form115Model.Promotions" Role="Promotions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotels">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="Promotions">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HotelTracking">
+          <Key>
+            <PropertyRef Name="IdHotelTracking" />
+          </Key>
+          <Property Name="IdHotelTracking" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateHT" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="IdHotel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Hotels" Relationship="Form115Model.fk_HotelTracking_Hotels" FromRole="HotelTracking" ToRole="Hotels" />
+        </EntityType>
+        <Association Name="fk_HotelTracking_Hotels">
+          <End Type="Form115Model.Hotels" Role="Hotels" Multiplicity="1" />
+          <End Type="Form115Model.HotelTracking" Role="HotelTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotels">
+              <PropertyRef Name="IdHotel" />
+            </Principal>
+            <Dependent Role="HotelTracking">
+              <PropertyRef Name="IdHotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Form115ModelStoreContainer" CdmEntityContainer="Form115Entities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Form115Model.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="IdCategorie" ColumnName="IdCategorie" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Continents">
+            <EntityTypeMapping TypeName="Form115Model.Continents">
+              <MappingFragment StoreEntitySet="Continents">
+                <ScalarProperty Name="idContinent" ColumnName="idContinent" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotels">
+            <EntityTypeMapping TypeName="Form115Model.Hotels">
+              <MappingFragment StoreEntitySet="Hotels">
+                <ScalarProperty Name="IdHotel" ColumnName="IdHotel" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="IdVille" ColumnName="IdVille" />
+                <ScalarProperty Name="Categorie" ColumnName="Categorie" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pays">
+            <EntityTypeMapping TypeName="Form115Model.Pays">
+              <MappingFragment StoreEntitySet="Pays">
+                <ScalarProperty Name="CodeIso3" ColumnName="CodeIso3" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="surfacearea" ColumnName="surfacearea" />
+                <ScalarProperty Name="indepyear" ColumnName="indepyear" />
+                <ScalarProperty Name="population" ColumnName="population" />
+                <ScalarProperty Name="lifeexpectancy" ColumnName="lifeexpectancy" />
+                <ScalarProperty Name="gnp" ColumnName="gnp" />
+                <ScalarProperty Name="gnpold" ColumnName="gnpold" />
+                <ScalarProperty Name="localName" ColumnName="localName" />
+                <ScalarProperty Name="CodeIso2" ColumnName="CodeIso2" />
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+                <ScalarProperty Name="idgovform" ColumnName="idgovform" />
+                <ScalarProperty Name="idheadofstate" ColumnName="idheadofstate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produits">
+            <EntityTypeMapping TypeName="Form115Model.Produits">
+              <MappingFragment StoreEntitySet="Produits">
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+                <ScalarProperty Name="IdSejour" ColumnName="IdSejour" />
+                <ScalarProperty Name="NbPlaces" ColumnName="NbPlaces" />
+                <ScalarProperty Name="DateDepart" ColumnName="DateDepart" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="Form115Model.Regions">
+              <MappingFragment StoreEntitySet="Regions">
+                <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="idContinent" ColumnName="idContinent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="Form115Model.Reservations">
+              <MappingFragment StoreEntitySet="Reservations">
+                <ScalarProperty Name="IdReservation" ColumnName="IdReservation" />
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sejours">
+            <EntityTypeMapping TypeName="Form115Model.Sejours">
+              <MappingFragment StoreEntitySet="Sejours">
+                <ScalarProperty Name="IdSejour" ColumnName="IdSejour" />
+                <ScalarProperty Name="IdHotel" ColumnName="IdHotel" />
+                <ScalarProperty Name="Duree" ColumnName="Duree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs">
+            <EntityTypeMapping TypeName="Form115Model.Utilisateurs">
+              <MappingFragment StoreEntitySet="Utilisateurs">
+                <ScalarProperty Name="IdAspNetUsers" ColumnName="IdAspNetUsers" />
+                <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Villes">
+            <EntityTypeMapping TypeName="Form115Model.Villes">
+              <MappingFragment StoreEntitySet="Villes">
+                <ScalarProperty Name="idVille" ColumnName="idVille" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="CodeIso3" ColumnName="CodeIso3" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="population" ColumnName="population" />
+                <ScalarProperty Name="isCapital" ColumnName="isCapital" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Form115Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Form115Model.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Form115Model.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Form115Model.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Form115Model.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Form115Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Promotions">
+            <EntityTypeMapping TypeName="Form115Model.Promotions">
+              <MappingFragment StoreEntitySet="Promotions">
+                <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+                <ScalarProperty Name="IdHotel" ColumnName="IdHotel" />
+                <ScalarProperty Name="IdPromo" ColumnName="IdPromo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelTracking">
+            <EntityTypeMapping TypeName="Form115Model.HotelTracking">
+              <MappingFragment StoreEntitySet="HotelTracking">
+                <ScalarProperty Name="IdHotel" ColumnName="IdHotel" />
+                <ScalarProperty Name="DateHT" ColumnName="DateHT" />
+                <ScalarProperty Name="IdHotelTracking" ColumnName="IdHotelTracking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

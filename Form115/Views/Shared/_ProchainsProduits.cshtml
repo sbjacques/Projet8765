@@ -1,0 +1,24 @@
+﻿@using DataLayer.Models
+@model List<Produits>
+
+<div class="panel panel-info">
+
+    <div class="panel-heading">
+        <strong>Dernière minute</strong>
+    </div>
+    <div class="panel-body">
+        @foreach (Produits prod in Model)
+        {
+            DateTime date = @prod.DateDepart;
+            <a href="/Hotel/Details/@prod.Sejours.IdHotel">
+                <div class="col-md-12">
+                    <span class="col-md-5">@date.ToShortDateString()</span>
+                    <span class="col-md-2">@prod.Sejours.Duree jours</span>
+                    <span class="col-md-3">@prod.Sejours.Hotels.Villes.name</span>
+                    <span class="col-md-2">@prod.Prix euros</span>
+                </div>
+            </a>
+        }
+    </div>
+
+</div>

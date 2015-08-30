@@ -1,0 +1,72 @@
+﻿@model DataLayer.Models.Hotels
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Suppression d'un Hôtel</h2>
+
+<h3>Etes-vous sûrs de vouloir supprimer ceci?</h3>
+<br />
+<div>
+    <h4>@Model.Nom</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdHotel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdHotel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categories.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+                
+        <dt>
+           Ville
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Villes.name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour à l'index", "Index")
+        </div>
+    }
+</div>

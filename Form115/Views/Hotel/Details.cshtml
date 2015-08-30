@@ -1,0 +1,113 @@
+﻿@* @using System.Globalization*@
+@using DataLayer.Models
+@using Form115.Models
+@model HotelViewModel
+
+@{Hotels hotel = (new Form115Entities()).Hotels.Where(h => h.IdHotel == Model.IdHotel).First();}
+
+@{
+    ViewBag.Title = "Hotel " + hotel.Nom;
+}
+
+@section scripts {
+    <script src="~/Scripts/DatePicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/Hotel/Details.js"></script>
+}
+
+@section styles {
+    <style>
+        td, th {
+            padding: 0.7em;
+        }
+
+            td.colspan0 {
+                text-align: center;
+                font-style: italic;
+            }
+    </style>
+
+    <link href="~/Scripts/DatePicker/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+}
+
+<h2>@hotel.Nom (@hotel.Villes.name)</h2>
+
+<table>
+    <tr>
+        <td style="width:10cm ; min-height:8cm"> <img alt="Aucune photo disponible pour l'instant..." src="/Areas/Admin/Uploads/@hotel.Photo" /> </td>
+        <td>
+            <p>@hotel.Description</p>
+            <p>
+                @hotel.Categorie @if (hotel.Categorie <= 1)
+                { <text>étoile</text> }
+                else
+                {<text>étoiles</text>}
+            </p>
+
+            <input type="hidden" name="IdHotel" value="@Model.IdHotel" />
+            @if (Model._dateDebut != DateTime.MinValue)
+            {
+                <input type="hidden" name="DateDebut" value="@Model._dateDebut.ToString("yyyy-MM-dd")" />
+            }
+            else
+            {
+                <input type="hidden" name="DateDebut" />
+            }
+            @if (Model._dateFin != DateTime.MinValue)
+            {
+                <input type="hidden" name="DateFin" value="@Model._dateFin.ToString("yyyy-MM-dd")" />
+            }
+            else
+            {
+                <input type="hidden" name="DateFin" />
+            }
+
+            <p>
+                Durée du séjour : entre
+                <input type="number" name="DureeMinSejour" style="width:5em" />
+                et
+                <input type="number" name="DureeMaxSejour" style="width:5em" />
+                jours.
+            </p>
+
+            @*@{var nb_durees = @hotel.Sejours.Count();}
+
+                <h4>Durée du séjour</h4>
+                <ul style="list-style-type: none">
+                    @foreach (var sej in hotel.Sejours.OrderBy(s => s.Duree))
+                    {
+                        <li> <label><input type="checkbox" name="DureeMinSejour" value="@sej.DureeMin" /> @sej.DureeMin jours</label></li>
+                    }
+                </ul>*@
+
+            <p>À partir du : <input type="text" name="DateDepart" id="champDateDepart" /></p>
+
+
+            @{ var sejour = @hotel.Sejours.First();}
+
+        </td>
+    </tr>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th style="width:20em">Date de départ</th>
+            <th>Durée du séjour</th>
+            <th style="text-align:right ; padding-left:9em">Prix</th>
+            <th style="text-align:right ; padding-left:3em">Places restantes</th>
+        </tr>
+    </thead>
+    <tbody id="tbodyListeProduits">
+        @foreach (var prod in sejour.Produits)
+        {
+            DateTime date = @prod.DateDepart;
+            var nb_rest = prod.NbPlaces - prod.Reservations.GroupBy(r => r.IdProduit).Count();
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+            <tr>
+                <td>@date.ToString()</td>
+                <td>@prod.Sejours.Duree jours</td>
+                <td>@prod.Prix euros</td>
+                <td style="text-align:right">@nb_rest</td>
+            </tr>
+        }
+    </tbody>
+</table>
